@@ -75,3 +75,41 @@ reset.scss
 	npm run serve
 ```
 
+#### 加载及渲染电子书
+
+```
+1、导入相关包
+	import Epub from 'epubjs'
+	
+2、设置渲染的视图
+	<div id="read"></div>
+	
+3、创建及渲染
+	this.book = new Epub(url)
+    this.rendition = this.book.renderTo("read", {
+        width: innerWidth,
+        height: innerHeight,
+        method:'default' // 兼容微信浏览器
+    })
+    this.rendition.display()
+    
+4、epub中的事件处理
+	注意：epubjs版本的0.3.71才支持touch事件，新版本暂时不支持
+	
+	this.rendition.on('事件名称'，event => {
+		
+	})
+```
+
+#### epubjs 常用API
+
+```
+上一页：this.rendition.prev()
+
+下一页：this.rendition.next()
+
+设置字体大小：this.book.rendition.themes.fontSize(字体大小)
+
+设置字体：this.book.rendition.themes.font(字体对象)
+```
+

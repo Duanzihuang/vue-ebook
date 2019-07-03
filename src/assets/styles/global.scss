@@ -1,7 +1,3 @@
 @import './reset';
-
-$Ratio : 375 / 10;
-
-@function px2rem($px){
-    @return $px / $Ratio + rem;
-}
+@import './mixins';
+@import './transition';
