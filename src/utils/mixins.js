@@ -3,6 +3,7 @@ import {mapGetters,mapActions} from 'vuex'
 export const ebookMixins = {
   computed: {
     ...mapGetters([
+      'fileName',
       'menuVisible',
       'settingVisible',
       'defaultFontSize',

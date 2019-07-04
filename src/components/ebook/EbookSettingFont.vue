@@ -35,6 +35,7 @@
 <script>
 import {ebookMixins} from '@/utils/mixins'
 import {FONT_SIZE_LIST} from '@/utils/book'
+import {saveFontSize} from '@/utils/localStorage'
 export default {
   mixins:[ebookMixins],
   data(){
@@ -47,7 +48,6 @@ export default {
   watch:{
     settingVisible(v){
       if (v === 0){
-        console.log("=============")
         this.$nextTick(() => {
           this.genStyle()
         })
@@ -74,7 +74,10 @@ export default {
     },
     setFontSize(fontSize){
       this.setDefaultFontSize(fontSize)
+      // 设置字体大小
       this.currentBook.rendition.themes.fontSize(fontSize)
+      // 保存到本地
+      saveFontSize(this.fileName,fontSize)
     },
     showFontFamilySetting(){
       this.setFontFamilyVisible(true)
@@ -94,6 +97,7 @@ export default {
     flex-direction: column;
     width:100%;
     height: px2rem(90);
+    background-color: gray;
     box-shadow: 0 px2rem(-8) px2rem(8) rgba(0, 0, 0, .15);
     .setting-font-size{
       flex:2;

@@ -22,3 +22,15 @@
 .slide-up-enter-active,.slide-up-leave-active{
     transition: all .2s linear;
 }
+
+.popup-slide-up-enter,.popup-slide-up-leave-to{
+    transform: translate3d(0 , 100%, 0);
+}
+
+.popup-slide-up-enter-to,.popup-slide-up-leave{
+    transform: translate3d(0 , 0, 0);
+}
+
+.popup-slide-up-enter-active,.popup-slide-up-leave-active{
+    transition: all .2s linear;
+}

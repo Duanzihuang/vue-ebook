@@ -110,6 +110,9 @@ reset.scss
 
 设置字体大小：this.book.rendition.themes.fontSize(字体大小)
 
-设置字体：this.book.rendition.themes.font(字体对象)
+设置字体：this.book.rendition.themes.font(字体)
+
+加载字体文件: this.rendition.hooks.content.register(contents => {})
+	contents 用于管理资源
 ```
 
