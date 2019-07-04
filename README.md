@@ -114,5 +114,15 @@ reset.scss
 
 加载字体文件: this.rendition.hooks.content.register(contents => {})
 	contents 用于管理资源
+	
+注册主题：this.rendition.themes.register(样式名称,样式的style)
+
+设置默认主题：this.rendition.themes.select(主题名字)
+```
+
+#### 全局样式设置【非epub】
+
+```
+通过在 head 中动态引入 link 样式实现
 ```
 

@@ -8,7 +8,7 @@
 import {mapGetters} from 'vuex'
 import Epub from 'epubjs'
 import {ebookMixins} from '../../utils/mixins'
-import {getFontFamily,saveFontFamily,saveFontSize,getFontSize} from '@/utils/localStorage'
+import {getFontFamily,saveFontFamily,saveFontSize,getFontSize,saveTheme,getTheme} from '@/utils/localStorage'
 export default {
   mixins:[ebookMixins],
   computed:{
@@ -50,6 +50,22 @@ export default {
       this.rendition.themes.font(fontFamily)
       this.setDefaultFontFamily(fontFamily)
     },
+    // 初始化主题
+    initTheme(){
+      let defaultTheme = getTheme(this.fileName)
+      if (!defaultTheme) {
+        defaultTheme = this.themeList[0].name
+        saveTheme(this.fileName,defaultTheme)
+      }
+
+      this.setDefaultTheme(defaultTheme)
+      this.themeList.forEach(item => {
+        this.rendition.themes.register(item.name,item.style)
+      })
+
+      // 设置默认主题
+      this.rendition.themes.select(defaultTheme)
+    },
     initRendition(){
       this.rendition = this.book.renderTo("read", {
         width: innerWidth,
@@ -61,6 +77,10 @@ export default {
         this.initFontSize()
         // 初始化字体
         this.initFontFamily()
+        // 初始化主题
+        this.initTheme()
+        // 初始化全局样式
+        this.initGlobalStyle()
       }) // 显示
 
       // 加载字体文件

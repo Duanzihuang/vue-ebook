@@ -51,3 +51,11 @@ export function getFontSize(fileName){
 export function saveFontSize(fileName,fontSize){
   return setBookObject(fileName,'fontSize',fontSize)
 }
+
+export function getTheme(fileName){
+  return getBookObject(fileName,'theme')
+}
+
+export function saveTheme(fileName,theme){
+  return setBookObject(fileName,'theme',theme)
+}

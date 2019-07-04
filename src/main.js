@@ -14,8 +14,12 @@ import './assets/styles/global.scss'
 
 Vue.config.productionTip = false
 
+// 导入国际化文件
+import i18n from './locale'
+
 new Vue({
   router,
   store,
+  i18n,
   render: h => h(App)
 }).$mount('#app')

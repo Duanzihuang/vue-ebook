@@ -6,7 +6,8 @@ export default {
     defaultFontSize:16, // 默认字体
     currentBook:null, // book实例
     defaultFontFamily:'Default', // 默认字体
-    fontFamilyVisible: false // 字体列表是否可见
+    fontFamilyVisible: false, // 字体列表是否可见
+    defaultTheme:'Default' // 默认主题
   },
   getters:{
     getFileName(state) {
@@ -34,6 +35,9 @@ export default {
     },
     'SET_FONT_FAMILY_VISIBLE'(state,fontFamilyVisible){
       state.fontFamilyVisible = fontFamilyVisible
+    },
+    'SET_DEFAULT_THEME'(state,defaultTheme){
+      state.defaultTheme = defaultTheme
     }
   },
   actions: {
