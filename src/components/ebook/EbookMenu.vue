@@ -19,6 +19,7 @@
     <ebook-setting-font></ebook-setting-font>
     <ebook-setting-font-popup></ebook-setting-font-popup>
     <ebook-setting-theme></ebook-setting-theme>
+    <ebook-setting-progress></ebook-setting-progress>
   </div>
 </template>
 
@@ -27,12 +28,14 @@ import {ebookMixins} from '@/utils/mixins'
 import EbookSettingFont from '@/components/ebook/EbookSettingFont'
 import EbookSettingFontPopup from '@/components/ebook/EbookSettingFontPopup'
 import EbookSettingTheme from '@/components/ebook/EbookSettingTheme'
+import EbookSettingProgress from '@/components/ebook/EbookSettingProgress'
 export default {
   mixins:[ebookMixins],
   components:{
     EbookSettingFont,
     EbookSettingFontPopup,
-    EbookSettingTheme
+    EbookSettingTheme,
+    EbookSettingProgress
   },
   methods:{
     showSetting(key){
@@ -49,7 +52,7 @@ export default {
     left:0;
     bottom: 0;
     width: 100%;
-    height: px2rem(60);
+    height: px2rem(90);
     display: flex;
     background-color: white;
     box-shadow: 0 px2rem(-8) px2rem(8) rgba(0, 0, 0, .15);

@@ -7,7 +7,10 @@ export default {
     currentBook:null, // book实例
     defaultFontFamily:'Default', // 默认字体
     fontFamilyVisible: false, // 字体列表是否可见
-    defaultTheme:'Default' // 默认主题
+    defaultTheme:'Default', // 默认主题
+    bookAvailable:false, // 电子书是否可用？加载完毕
+    progress: 0, // 阅读进度
+    section: 0, // 阅读章节
   },
   getters:{
     getFileName(state) {
@@ -38,6 +41,15 @@ export default {
     },
     'SET_DEFAULT_THEME'(state,defaultTheme){
       state.defaultTheme = defaultTheme
+    },
+    'SET_BOOK_AVAILABLE'(state,bookAvailable){
+      state.bookAvailable = bookAvailable
+    },
+    'SET_PROGRESS': (state, progress) => {
+      state.progress = progress
+    },
+    'SET_SECTION': (state, section) => {
+      state.section = section
     }
   },
   actions: {

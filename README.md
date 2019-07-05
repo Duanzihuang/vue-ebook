@@ -118,6 +118,20 @@ reset.scss
 注册主题：this.rendition.themes.register(样式名称,样式的style)
 
 设置默认主题：this.rendition.themes.select(主题名字)
+
+电子书解析完毕：this.currentBook.ready(() => {})
+
+获取章节信息：this.currentBook.section(第几章节)
+
+跳转到某个章节：this.currentBook.rendition.display(sectionInfo.href)
+
+获取电子书总章节数：this.currentBook.spine
+
+获取电子书阅读当前位置：this.currentBook.rendition.currentLocation()
+
+根据cfi获取进度：this.currentBook.locations.percentageFromCfi(currentLocation.start.cfi)
+
+根据章节获取目录：this.currentBook.navigation.get(sectionInfo.href)
 ```
 
 #### 全局样式设置【非epub】

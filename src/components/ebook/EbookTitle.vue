@@ -40,7 +40,7 @@ export default {
     left:0;
     top:0;
     width:100%;
-    height: px2rem(60);
+    height: px2rem(90);
     z-index: 200;
     display: flex;
     box-shadow: 0 px2rem(8) px2rem(8) rgba(0, 0, 0, .15);

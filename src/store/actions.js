@@ -19,5 +19,14 @@ export default {
   },
   setDefaultTheme({commit},defaultTheme){
     return commit('SET_DEFAULT_THEME',defaultTheme)
+  },
+  setBookAvailable({commit},bookAvailable){
+    return commit('SET_BOOK_AVAILABLE',bookAvailable)
+  },
+  setProgress: ({ commit }, progress) => {
+    return commit('SET_PROGRESS', progress)
+  },
+  setSection: ({ commit }, section) => {
+    return commit('SET_SECTION', section)
   }
 }

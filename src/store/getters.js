@@ -6,5 +6,8 @@ export default {
   currentBook: state => state.book.currentBook,
   defaultFontFamily: state => state.book.defaultFontFamily,
   fontFamilyVisible: state => state.book.fontFamilyVisible,
-  defaultTheme:state => state.book.defaultTheme
+  defaultTheme:state => state.book.defaultTheme,
+  bookAvailable:state => state.book.bookAvailable,
+  progress: state => state.book.progress,
+  section: state => state.book.section
 }
