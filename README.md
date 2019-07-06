@@ -140,3 +140,24 @@ reset.scss
 通过在 head 中动态引入 link 样式实现
 ```
 
+#### 获取电子书信息
+
+```
+1、获取电子书封面图片
+	this.book.loaded.cover.then(cover => {
+		this.book.archive.createUrl(cover).then(url => {
+			console.log(`电子书封面图片url ${url}`)
+		})
+	})
+	
+2、获取电子书标题与作者
+	this.book.loaded.metadata.then(metadata => {
+		console.log(`metadata is ${metadata}`)
+	})
+	
+3、获取电子书目录
+	this.book.loaded.navigation.then(nav => {
+		console.log(`nav is ${nav}`)
+	})
+```
+

@@ -34,7 +34,6 @@
 
 <script>
 import {ebookMixins} from '@/utils/mixins'
-import {getReadTime} from '@/utils/localStorage'
 export default {
   mixins:[ebookMixins],
   computed:{
@@ -123,17 +122,6 @@ export default {
         this.displayProgess()
         this.updateProgressBg()
       })
-    },
-    getReadTimeText(){
-      return this.$t('book.haveRead').replace('$1',this.getReadTimeByMinute())
-    },
-    getReadTimeByMinute(){
-      const readTime = getReadTime(this.fileName)
-      if (!readTime){
-        return 0
-      } else {
-        return Math.ceil(readTime / 60)
-      }
     }
   },
   updated() {

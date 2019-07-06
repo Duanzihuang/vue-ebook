@@ -1,7 +1,7 @@
 import {mapGetters,mapActions} from 'vuex'
 import {themeList} from './book'
 import {addCss,removeAllCss} from '@/utils/book'
-import {saveLocation} from '@/utils/localStorage'
+import {saveLocation,getReadTime} from '@/utils/localStorage'
 
 export const ebookMixins = {
   computed: {
@@ -16,7 +16,9 @@ export const ebookMixins = {
       'defaultTheme',
       'bookAvailable',
       'progress',
-      'section'
+      'section',
+      'cover',
+      'metadata'
     ]),
     themeList(){
       return themeList(this)
@@ -33,7 +35,9 @@ export const ebookMixins = {
       'setDefaultTheme',
       'setBookAvailable',
       'setProgress',
-      'setSection'
+      'setSection',
+      'setCover',
+      'setMetadata'
     ]),
     // 初始化全局样式
     initGlobalStyle(){
@@ -86,6 +90,23 @@ export const ebookMixins = {
 
           cb && cb()
         })
+      }
+    },
+    // 隐藏头部标题栏和底部菜单
+    hideTitleAndMenu(){
+      this.setMenuVisible(false)
+      this.setSettingVisible(-1)
+      this.setDefaultFontFamily(false)
+    },
+    getReadTimeText(){
+      return this.$t('book.haveRead').replace('$1',this.getReadTimeByMinute())
+    },
+    getReadTimeByMinute(){
+      const readTime = getReadTime(this.fileName)
+      if (!readTime){
+        return 0
+      } else {
+        return Math.ceil(readTime / 60)
       }
     }
   }

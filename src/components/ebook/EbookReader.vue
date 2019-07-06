@@ -144,6 +144,22 @@ export default {
         event.stopPropagation()
       })
     },
+    // 解析电子书
+    parseBook(){
+      // 获取电子书封面
+      this.book.loaded.cover.then(cover => {
+        // console.log(cover)
+        this.book.archive.createUrl(cover).then(url => {
+          // console.log(url)
+          this.setCover(url)
+        })
+      })
+      // 获取电子书标题和作者信息
+      this.book.loaded.metadata.then(metadata => {
+        // console.log(metadata)
+        this.setMetadata(metadata)
+      })
+    },
     // 初始化电子书
     initEpub(){
       const baseURL = 'http://localhost:8090/'
@@ -158,6 +174,9 @@ export default {
 
       // 初始化手势
       this.initGesture()
+
+      // 解析电子书
+      this.parseBook()
 
       // 初始化分页
       this.book.ready.then(() => {

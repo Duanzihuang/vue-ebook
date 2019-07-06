@@ -34,3 +34,23 @@
 .popup-slide-up-enter-active,.popup-slide-up-leave-active{
     transition: all .2s linear;
 }
+
+.fade-enter,.fade-leave-to{
+    opacity: 0;
+}
+
+.fade-enter-to,.fade-leave{
+    opacity: 1;
+}
+
+.fade-enter-active,.fade-leave-active,.slide-right-enter-active,.slide-right-leave-active{
+    transition: all .2s linear;
+}
+
+.slide-right-enter,.right-slide-leave-to{
+    transform: translate3d(-100%,0,0);
+}
+
+.slide-right-enter-to,.slide-right-leave{
+    transform: translate3d(0,0,0);
+}

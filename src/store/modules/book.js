@@ -11,6 +11,8 @@ export default {
     bookAvailable:false, // 电子书是否可用？加载完毕
     progress: 0, // 阅读进度
     section: 0, // 阅读章节
+    cover:null, // 电子书封面
+    metadata:null // 电子书标题及作者等信息
   },
   getters:{
     getFileName(state) {
@@ -50,6 +52,12 @@ export default {
     },
     'SET_SECTION': (state, section) => {
       state.section = section
+    },
+    'SET_COVER'(state,cover){
+      state.cover = cover
+    },
+    'SET_METADATA'(state,metadata){
+      state.metadata = metadata
     }
   },
   actions: {
